@@ -1,6 +1,6 @@
 AOS.init();
 
-// Codelab 1
+// Codelab 2
 function calculate() {
   let number1 = parseFloat(document.getElementById("number1").value);
   let number2 = parseFloat(document.getElementById("number2").value);
@@ -15,7 +15,7 @@ function resetCalculator() {
   document.getElementById("result").value = "";
 }
 
-// Codelab 2
+// Codelab 3
 function validateForm() {
   let name = document.getElementById("name").value.trim();
   let email = document.getElementById("email").value.trim();
@@ -35,13 +35,3 @@ function validateForm() {
     window.alert("Form terkirim!");
   }
 }
-
-tailwind.config = {
-  theme: {
-    extend: {
-      colors: {
-        clifford: "#da373d",
-      },
-    },
-  },
-};
