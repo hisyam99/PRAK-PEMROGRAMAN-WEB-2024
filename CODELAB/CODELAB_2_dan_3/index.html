@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modul 2: Codelab 1 dan 2</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/js/all.min.js"></script>
+  </head>
+  <body>
+    <div class="drawer z-10">
+      <input id="my-drawer-3" type="checkbox" class="drawer-toggle" />
+      <header class="drawer-content flex flex-col z-20">
+        <div class="navbar bg-base-100 fixed top-0 shadow-lg z-10">
+          <div class="container mx-auto">
+            <div class="flex-none lg:hidden">
+              <label for="my-drawer-3" class="btn btn-square btn-ghost">
+                <i class="fa-solid fa-bars"></i>
+              </label>
+            </div>
+            <div class="flex-1">
+              <a class="btn btn-ghost text-xl">Modul 2: Codelab</a>
+            </div>
+            <div class="flex-none hidden lg:block">
+              <ul class="menu menu-horizontal">
+                <li><a href="#calculator">Codelab 1</a></li>
+                <li><a href="#contact">Codelab 2</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="drawer-side z-20">
+        <label for="my-drawer-3" class="drawer-overlay"></label>
+        <ul class="menu p-4 w-80 min-h-full bg-base-200">
+          <li><a href="#calculator">Codelab 1</a></li>
+          <li><a href="#contact">Codelab 2</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <section id="calculator" class="py-16 bg-base-200">
+      <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-3xl font-bold text-center mb-8" data-aos="fade-up">
+            Codelab 1: Operasi Penjumlahan
+          </h2>
+          <div
+            class="card bg-base-100 shadow-xl"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="card-body">
+              <h2
+                class="text-3xl font-bold text-center mb-8"
+                data-aos="fade-up"
+              >
+                Kalkulator
+              </h2>
+              <form id="calculator-form" class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div class="form-control w-full">
+                    <label class="label">
+                      <span class="label-text">Bilangan Pertama</span>
+                    </label>
+                    <input
+                      type="number"
+                      id="number1"
+                      placeholder="Masukkan angka pertama"
+                      class="input input-bordered w-full"
+                    />
+                  </div>
+                  <div class="form-control w-full">
+                    <label class="label">
+                      <span class="label-text">Bilangan Kedua</span>
+                    </label>
+                    <input
+                      type="number"
+                      id="number2"
+                      placeholder="Masukkan angka kedua"
+                      class="input input-bordered w-full"
+                    />
+                  </div>
+                </div>
+
+                <div class="form-control">
+                  <label class="label">
+                    <span class="label-text">Hasil</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="result"
+                    class="input input-bordered w-full"
+                    placeholder="Hasil akan muncul di sini"
+                    readonly
+                  />
+                </div>
+
+                <div class="flex justify-end space-x-4">
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    onclick="calculate()"
+                  >
+                    Jumlahkan
+                  </button>
+                  <button
+                    type="reset"
+                    class="btn btn-secondary"
+                    onclick="resetCalculator()"
+                  >
+                    Reset
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="py-16 bg-base-200">
+      <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-3xl font-bold text-center mb-8" data-aos="fade-up">
+            Codelab 2: Form Validation
+          </h2>
+
+          <div
+            class="card bg-base-100 shadow-xl"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="card-body">
+              <h2
+                class="text-3xl font-bold text-center mb-8"
+                data-aos="fade-up"
+              >
+                Hubungi Kami
+              </h2>
+              <form id="contact-form" class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div class="form-control w-full">
+                    <label class="label">
+                      <span class="label-text">Nama Lengkap</span>
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      placeholder="Nama lengkap"
+                      class="input input-bordered w-full"
+                    />
+                  </div>
+                  <div class="form-control w-full">
+                    <label class="label">
+                      <span class="label-text">Email</span>
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      placeholder="Email"
+                      class="input input-bordered w-full"
+                    />
+                  </div>
+                </div>
+
+                <div class="form-control w-full">
+                  <label class="label">
+                    <span class="label-text">Nomor Telepon</span>
+                  </label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    placeholder="Nomor telepon"
+                    class="input input-bordered w-full"
+                  />
+                </div>
+
+                <div class="form-control w-full">
+                  <label class="label">
+                    <span class="label-text">Jenis Layanan</span>
+                  </label>
+                  <select id="service" class="select select-bordered w-full">
+                    <option disabled selected value="">Pilih Layanan</option>
+                    <option>Service Smartphone</option>
+                    <option>Service Laptop</option>
+                    <option>Service Tablet</option>
+                    <option>Service Aksesoris</option>
+                  </select>
+                </div>
+
+                <div class="form-control">
+                  <label class="label">
+                    <span class="label-text">Pesan</span>
+                  </label>
+                  <textarea
+                    id="message"
+                    class="textarea textarea-bordered h-24"
+                    placeholder="Tulis pesan Anda"
+                  ></textarea>
+                </div>
+
+                <button
+                  type="button"
+                  class="btn btn-primary w-full"
+                  onclick="validateForm()"
+                >
+                  Kirim Pesan
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer
+      class="footer text-base-content border-base-300 border-t px-10 py-4"
+    >
+      <aside class="grid-flow-col items-center">
+        <p>
+          <a
+            href="https://github.com/hisyam99"
+            target="_blank"
+            class="text-inherit hover:underline"
+            >hisyam99</a
+          >
+          <br />
+          Muhammad Hisyam Kamil
+        </p>
+      </aside>
+      <nav class="md:place-self-center md:justify-self-end">
+        <div class="grid grid-flow-col gap-4">
+          <a href="https://github.com/hisyam99" target="_blank">
+            <i class="fab fa-github text-2xl"></i>
+          </a>
+        </div>
+      </nav>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
