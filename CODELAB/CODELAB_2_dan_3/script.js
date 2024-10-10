@@ -6,7 +6,7 @@ function calculate() {
   let number2 = parseFloat(document.getElementById("number2").value);
 
   let result = number1 + number2;
-  
+
   document.getElementById("result").value = result;
 }
 
@@ -35,3 +35,13 @@ function validateForm() {
     window.alert("Form terkirim!");
   }
 }
+
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        clifford: "#da373d",
+      },
+    },
+  },
+};
