@@ -1,0 +1,22 @@
+/* Mobile menu styles */
+/* .mobile-menu {
+  transition: transform 0.3s ease-in-out;
+}
+.mobile-menu.hidden {
+  transform: translateX(-100%);
+} */
+/* Custom animation */
+/* @keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+} */

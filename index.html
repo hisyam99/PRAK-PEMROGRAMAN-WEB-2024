@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reparin - Platform Jasa Service Gadget</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/js/all.min.js"></script>
+    <link href="styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <div class="drawer z-10">
+      <input id="my-drawer-3" type="checkbox" class="drawer-toggle" />
+      <div class="drawer-content flex flex-col z-20">
+        <div class="navbar bg-base-100 fixed top-0 shadow-lg z-10">
+          <div class="flex-none lg:hidden">
+            <label for="my-drawer-3" class="btn btn-square btn-ghost">
+              <i class="fa-solid fa-bars"></i>
+            </label>
+          </div>
+          <div class="flex-1 px-2 mx-2">
+            <a class="btn btn-ghost">
+              <img src="/assets/reparin.png" alt="Reparin" class="h-10" />
+            </a>
+          </div>
+          <div class="flex-none hidden lg:block">
+            <ul class="menu menu-horizontal">
+              <li><a href="#home">Home</a></li>
+              <li><a href="#features">Features</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#testimonials">Testimonials</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="drawer-side z-20">
+        <label for="my-drawer-3" class="drawer-overlay"></label>
+        <ul class="menu p-4 w-80 min-h-full bg-base-200">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero min-h-screen bg-base-200 mt-16">
+      <div class="hero-content flex-col lg:flex-row-reverse">
+        <img
+          src="/assets/servis_laptop.jpeg"
+          class="max-w-sm rounded-lg shadow-2xl"
+          data-aos="fade-left"
+        />
+        <div data-aos="fade-right">
+          <h1 class="text-5xl font-bold">Reparin</h1>
+          <p class="py-6">Solusi Terbaik untuk Semua Masalah Gadget Anda</p>
+          <div class="space-x-4">
+            <a href="#contact" class="btn btn-primary">Mulai Sekarang</a>
+            <a href="#services" class="btn btn-outline">Lihat Layanan</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-16">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-8" data-aos="fade-up">
+          Kenapa Memilih Reparin?
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div
+            class="card bg-base-100 shadow-xl"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="card-body items-center text-center">
+              <div class="text-primary text-5xl mb-4">
+                <i class="fas fa-bolt"></i>
+              </div>
+              <h3 class="card-title">Layanan Cepat</h3>
+              <p>
+                Layanan perbaikan yang cepat dan profesional untuk gadget Anda
+                dengan estimasi waktu yang akurat.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="card bg-base-100 shadow-xl"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div class="card-body items-center text-center">
+              <div class="text-primary text-5xl mb-4">
+                <i class="fas fa-user-gear"></i>
+              </div>
+              <h3 class="card-title">Teknisi Handal</h3>
+              <p>
+                Didukung oleh teknisi profesional dan berpengalaman dengan
+                sertifikasi resmi.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="card bg-base-100 shadow-xl"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <div class="card-body items-center text-center">
+              <div class="text-primary text-5xl mb-4">
+                <i class="fas fa-shield"></i>
+              </div>
+              <h3 class="card-title">Garansi Layanan</h3>
+              <p>
+                Garansi hingga 90 hari untuk setiap layanan yang kami tawarkan.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="bg-base-200 py-16">
+      <div class="container mx-auto px-4">
+        <div class="stats shadow w-full">
+          <div
+            class="stat place-items-center"
+            data-aos="zoom-in"
+            data-aos-delay="100"
+          >
+            <div class="stat-title">Pelanggan Puas</div>
+            <div class="stat-value">5,000+</div>
+          </div>
+          <div
+            class="stat place-items-center"
+            data-aos="zoom-in"
+            data-aos-delay="200"
+          >
+            <div class="stat-title">Teknisi Ahli</div>
+            <div class="stat-value">50+</div>
+          </div>
+          <div
+            class="stat place-items-center"
+            data-aos="zoom-in"
+            data-aos-delay="300"
+          >
+            <div class="stat-title">Cabang</div>
+            <div class="stat-value">20+</div>
+          </div>
+          <div
+            class="stat place-items-center"
+            data-aos="zoom-in"
+            data-aos-delay="400"
+          >
+            <div class="stat-title">Rating Kepuasan</div>
+            <div class="stat-value">4.9</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-8" data-aos="fade-up">
+          Layanan Kami
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div
+            class="card bg-base-100 shadow-xl"
+            data-aos="zoom-in"
+            data-aos-delay="100"
+          >
+            <div class="card-body items-center text-center">
+              <div class="text-primary text-4xl mb-4">
+                <i class="fas fa-mobile-screen"></i>
+              </div>
+              <h3 class="card-title">Perbaikan Smartphone</h3>
+              <p>
+                Menangani berbagai masalah smartphone dari berbagai merek
+                ternama.
+              </p>
+              <div class="card-actions justify-end">
+                <button class="btn btn-primary">Selengkapnya</button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="card bg-base-100 shadow-xl"
+            data-aos="zoom-in"
+            data-aos-delay="200"
+          >
+            <div class="card-body items-center text-center">
+              <div class="text-primary text-4xl mb-4">
+                <i class="fas fa-laptop"></i>
+              </div>
+              <h3 class="card-title">Service Laptop</h3>
+              <p>Perbaikan hardware dan software untuk berbagai merk laptop.</p>
+              <div class="card-actions justify-end">
+                <button class="btn btn-primary">Selengkapnya</button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="card bg-base-100 shadow-xl"
+            data-aos="zoom-in"
+            data-aos-delay="300"
+          >
+            <div class="card-body items-center text-center">
+              <div class="text-primary text-4xl mb-4">
+                <i class="fas fa-tablet"></i>
+              </div>
+              <h3 class="card-title">Service Tablet</h3>
+              <p>Solusi untuk masalah tablet dari berbagai merek populer.</p>
+              <div class="card-actions justify-end">
+                <button class="btn btn-primary">Selengkapnya</button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="card bg-base-100 shadow-xl"
+            data-aos="zoom-in"
+            data-aos-delay="400"
+          >
+            <div class="card-body items-center text-center">
+              <div class="text-primary text-4xl mb-4">
+                <i class="fas fa-headphones"></i>
+              </div>
+              <h3 class="card-title">Service Aksesoris</h3>
+              <p>Perbaikan aksesoris elektronik dan gadget pendukung.</p>
+              <div class="card-actions justify-end">
+                <button class="btn btn-primary">Selengkapnya</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-16 bg-base-200">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-8" data-aos="fade-up">
+          Apa Kata Mereka?
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div
+            class="card bg-base-100 shadow-xl"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="card-body">
+              <div class="flex items-center mb-4">
+                <div class="avatar">
+                  <div class="w-12 rounded-full">
+                    <img src="/api/placeholder/50/50" alt="User" />
+                  </div>
+                </div>
+                <div class="ml-4">
+                  <h4 class="font-semibold">Ahmad Rizki</h4>
+                  <p class="text-sm opacity-70">Jakarta</p>
+                </div>
+              </div>
+              <p>
+                "Pelayanan sangat cepat dan profesional. Smartphone saya kembali
+                seperti baru!"
+              </p>
+              <div class="rating mt-4">
+                <input
+                  type="radio"
+                  name="rating-1"
+                  class="mask mask-star-2 bg-orange-400"
+                  checked
+                />
+                <input
+                  type="radio"
+                  name="rating-1"
+                  class="mask mask-star-2 bg-orange-400"
+                  checked
+                />
+                <input
+                  type="radio"
+                  name="rating-1"
+                  class="mask mask-star-2 bg-orange-400"
+                  checked
+                />
+                <input
+                  type="radio"
+                  name="rating-1"
+                  class="mask mask-star-2 bg-orange-400"
+                  checked
+                />
+                <input
+                  type="radio"
+                  name="rating-1"
+                  class="mask mask-star-2 bg-orange-400"
+                  checked
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Similar cards for other testimonials -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16">
+      <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-3xl font-bold text-center mb-8" data-aos="fade-up">
+            Hubungi Kami
+          </h2>
+          <div
+            class="card bg-base-100 shadow-xl"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="card-body">
+              <form class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div class="form-control w-full">
+                    <label class="label">
+                      <span class="label-text">Nama Lengkap</span>
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="Nama lengkap"
+                      class="input input-bordered w-full"
+                    />
+                  </div>
+                  <div class="form-control w-full">
+                    <label class="label">
+                      <span class="label-text">Email</span>
+                    </label>
+                    <input
+                      type="email"
+                      placeholder="Email"
+                      class="input input-bordered w-full"
+                    />
+                  </div>
+                </div>
+
+                <div class="form-control w-full">
+                  <label class="label">
+                    <span class="label-text">Nomor Telepon</span>
+                  </label>
+                  <input
+                    type="tel"
+                    placeholder="Nomor telepon"
+                    class="input input-bordered w-full"
+                  />
+                </div>
+
+                <div class="form-control w-full">
+                  <label class="label">
+                    <span class="label-text">Jenis Layanan</span>
+                  </label>
+                  <select class="select select-bordered w-full">
+                    <option disabled selected>Pilih Layanan</option>
+                    <option>Service Smartphone</option>
+                    <option>Service Laptop</option>
+                    <option>Service Tablet</option>
+                    <option>Service Aksesoris</option>
+                  </select>
+                </div>
+
+                <div class="form-control">
+                  <label class="label">
+                    <span class="label-text">Pesan</span>
+                  </label>
+                  <textarea
+                    class="textarea textarea-bordered h-24"
+                    placeholder="Tulis pesan Anda"
+                  ></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-full">
+                  Kirim Pesan
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer p-10 bg-neutral text-neutral-content">
+      <div>
+        <h3 class="text-2xl font-bold">Reparin</h3>
+        <p>
+          Solusi terbaik untuk perbaikan gadget Anda<br />dengan teknisi
+          profesional dan berpengalaman.
+        </p>
+        <div class="grid grid-flow-col gap-4">
+          <a class="btn btn-ghost btn-square"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+          <a class="btn btn-ghost btn-square"><i class="fab fa-twitter"></i></a>
+          <a class="btn btn-ghost btn-square"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a class="btn btn-ghost btn-square"
+            ><i class="fab fa-linkedin-in"></i
+          ></a>
+        </div>
+      </div>
+      <div>
+        <span class="footer-title">Layanan</span>
+        <a class="link link-hover">Service Smartphone</a>
+        <a class="link link-hover">Service Laptop</a>
+        <a class="link link-hover">Service Tablet</a>
+        <a class="link link-hover">Service Aksesoris</a>
+      </div>
+      <div>
+        <span class="footer-title">Perusahaan</span>
+        <a class="link link-hover">Tentang Kami</a>
+        <a class="link link-hover">Karir</a>
+        <a class="link link-hover">Blog</a>
+        <a class="link link-hover">Partnership</a>
+      </div>
+      <div>
+        <span class="footer-title">Kontak</span>
+        <div class="flex items-center">
+          <i class="fas fa-map-marker-alt mr-2"></i>
+          Jl. Contoh No. 123, Jakarta
+        </div>
+        <div class="flex items-center">
+          <i class="fas fa-phone mr-2"></i>
+          (021) 1234-5678
+        </div>
+        <div class="flex items-center">
+          <i class="fas fa-envelope mr-2"></i>
+          info@reparin.com
+        </div>
+      </div>
+      <div></div>
+        <p>&copy; 2024 Reparin. All rights reserved.</p>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
