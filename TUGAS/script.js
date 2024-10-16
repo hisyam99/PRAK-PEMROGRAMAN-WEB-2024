@@ -4,9 +4,11 @@ AOS.init();
 let currentInput = "0";
 let previousInput = "";
 let operator = "";
+let isNegative = false;
 
 function updateDisplay() {
-  document.getElementById("display").innerText = currentInput;
+  document.getElementById("display").innerText =
+    (isNegative ? "-" : "") + currentInput;
 }
 
 function inputNumber(num) {
@@ -26,15 +28,22 @@ function clearDisplay() {
   currentInput = "0";
   previousInput = "";
   operator = "";
+  isNegative = false;
   updateDisplay();
 }
 
 function inputOperator(op) {
   if (!operator) {
-    previousInput = currentInput;
+    previousInput = (isNegative ? "-" : "") + currentInput;
     currentInput = "0";
+    isNegative = false;
   }
   operator = op;
+}
+
+function toggleNegative() {
+  isNegative = !isNegative;
+  updateDisplay();
 }
 
 function calculate() {
@@ -44,6 +53,7 @@ function calculate() {
     "*": (a, b) => a * b,
     "/": (a, b) => a / b,
     "%": (a, b) => a % b,
+    "^": (a, b) => Math.pow(a, b),
   };
 
   const prev = parseFloat(previousInput);
@@ -51,8 +61,27 @@ function calculate() {
   currentInput = operations[operator](prev, current).toString();
   operator = "";
   previousInput = "";
+  isNegative = false;
   updateDisplay();
 }
+
+// fungsi untuk handle input keyboard
+document.addEventListener("keydown", (event) => {
+  if (!isNaN(event.key)) {
+    inputNumber(event.key);
+  } else if (["+", "-", "*", "/", "%", "^"].includes(event.key)) {
+    inputOperator(event.key);
+  } else if (event.key === ".") {
+    inputDecimal();
+  } else if (event.key === "Enter" || event.key === "=") {
+    calculate();
+  } else if (event.key === "Backspace") {
+    clearDisplay();
+  } else if (event.key === "n") {
+    // For toggling negative
+    toggleNegative();
+  }
+});
 
 // Tugas 2: To-Do List
 let todos = JSON.parse(localStorage.getItem("todos")) || [];
