@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html data-theme="winter">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modul 2: Tugas</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/js/all.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.13/dist/full.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/theme-change@2.0.2/index.js"></script>
+  </head>
+  <body>
+    <div class="drawer z-10">
+      <input id="my-drawer-3" type="checkbox" class="drawer-toggle" />
+      <header class="drawer-content flex flex-col z-20">
+        <div class="navbar bg-base-100 fixed top-0 shadow-lg z-10">
+          <div class="container mx-auto">
+            <div class="flex-none lg:hidden">
+              <label for="my-drawer-3" class="btn btn-square btn-ghost">
+                <i class="fa-solid fa-bars"></i>
+              </label>
+            </div>
+            <div class="flex-1">
+              <a class="btn btn-ghost text-xl">Modul 2: Tugas</a>
+            </div>
+            <div class="flex-none hidden lg:block">
+              <ul class="menu menu-horizontal">
+                <li><a href="#tugas-1">Tugas 1</a></li>
+                <li><a href="#tugas-2">Tugas 2</a></li>
+              </ul>
+            </div>
+            <div class="flex-none ml-4">
+              <select data-choose-theme class="select select-bordered">
+                <option value="">Default</option>
+                <option value="winter">Light</option>
+                <option value="dark">Dark</option>
+                <option value="cupcake">Cupcake</option>
+                <option value="cyberpunk">Cyberpunk</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="drawer-side z-20">
+        <label for="my-drawer-3" class="drawer-overlay"></label>
+        <ul class="menu p-4 w-80 min-h-full bg-base-200">
+          <li><a href="#tugas-1">Tugas 1</a></li>
+          <li><a href="#tugas-2">Tugas 2</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <main
+      class="min-h-screen flex flex-col justify-center items-center bg-base-200"
+    >
+      <section id="tugas-1" class="mb-8">
+        <div class="card w-96 bg-base-100 shadow-xl">
+          <div class="card-body">
+            <h2 class="text-3xl font-bold text-center">Kalkulator</h2>
+            <div
+              id="display"
+              class="bg-base-200 text-right p-4 text-4xl font-mono mb-4"
+            >
+              0
+            </div>
+            <div class="grid grid-cols-4 gap-2">
+              <button class="btn btn-outline" onclick="clearDisplay()">
+                AC
+              </button>
+              <button class="btn btn-outline" onclick="inputOperator('%')">
+                %
+              </button>
+              <button class="btn btn-outline" onclick="inputOperator('/')">
+                ÷
+              </button>
+              <button class="btn btn-primary" onclick="inputOperator('*')">
+                ×
+              </button>
+
+              <button class="btn btn-outline" onclick="inputNumber(7)">
+                7
+              </button>
+              <button class="btn btn-outline" onclick="inputNumber(8)">
+                8
+              </button>
+              <button class="btn btn-outline" onclick="inputNumber(9)">
+                9
+              </button>
+              <button class="btn btn-primary" onclick="inputOperator('-')">
+                −
+              </button>
+
+              <button class="btn btn-outline" onclick="inputNumber(4)">
+                4
+              </button>
+              <button class="btn btn-outline" onclick="inputNumber(5)">
+                5
+              </button>
+              <button class="btn btn-outline" onclick="inputNumber(6)">
+                6
+              </button>
+              <button class="btn btn-primary" onclick="inputOperator('+')">
+                +
+              </button>
+
+              <button class="btn btn-outline" onclick="inputNumber(1)">
+                1
+              </button>
+              <button class="btn btn-outline" onclick="inputNumber(2)">
+                2
+              </button>
+              <button class="btn btn-outline" onclick="inputNumber(3)">
+                3
+              </button>
+              <button class="btn btn-primary row-span-2" onclick="calculate()">
+                =
+              </button>
+
+              <button
+                class="btn btn-outline col-span-2"
+                onclick="inputNumber(0)"
+              >
+                0
+              </button>
+              <button class="btn btn-outline" onclick="inputDecimal()">
+                .
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="tugas-2" class="min-w-96">
+        <div class="card bg-base-100 shadow-xl">
+          <div class="card-body">
+            <h2 class="text-2xl font-bold">To-Do List</h2>
+            <div class="form-control">
+              <input
+                id="todo-input"
+                type="text"
+                placeholder="Tambahkan tugas"
+                class="input input-bordered w-full mb-4"
+              />
+              <button class="btn btn-primary w-full" onclick="addTodo()">
+                Tambah
+              </button>
+            </div>
+            <ul id="todo-list" class="mt-4 list-disc list-inside"></ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer
+      class="footer text-base-content border-base-300 border-t px-10 py-4"
+    >
+      <aside class="grid-flow-col items-center">
+        <p>
+          <a
+            href="https://github.com/hisyam99"
+            target="_blank"
+            class="text-inherit hover:underline"
+            >hisyam99</a
+          >
+          <br />Muhammad Hisyam Kamil
+        </p>
+      </aside>
+      <nav class="md:place-self-center md:justify-self-end">
+        <div class="grid grid-flow-col gap-4">
+          <a href="https://github.com/hisyam99" target="_blank">
+            <i class="fab fa-github text-2xl"></i>
+          </a>
+        </div>
+      </nav>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
