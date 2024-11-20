@@ -1,0 +1,99 @@
+{
+  "info": {
+    "name": "Reparin API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Service Endpoints",
+      "item": [
+        {
+          "name": "Get All Services",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost/api/services",
+              "protocol": "http",
+              "host": ["localhost"],
+              "path": ["api", "services"]
+            }
+          }
+        },
+        {
+          "name": "Get Service by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost/api/services/:id",
+              "protocol": "http",
+              "host": ["localhost"],
+              "path": ["api", "services", ":id"]
+            },
+            "description": "Replace `:id` with the ID of the service you want to retrieve."
+          }
+        },
+        {
+          "name": "Create a New Service",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Service Name\",\n    \"description\": \"Service Description\",\n    \"category\": \"Category Name\",\n    \"price_range\": \"1000-5000\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost/api/services",
+              "protocol": "http",
+              "host": ["localhost"],
+              "path": ["api", "services"]
+            }
+          }
+        },
+        {
+          "name": "Update Service by ID",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Updated Service Name\",\n    \"description\": \"Updated Service Description\",\n    \"category\": \"Updated Category Name\",\n    \"price_range\": \"2000-6000\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost/api/services/:id",
+              "protocol": "http",
+              "host": ["localhost"],
+              "path": ["api", "services", ":id"]
+            },
+            "description": "Replace `:id` with the ID of the service you want to update."
+          }
+        },
+        {
+          "name": "Delete Service by ID",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost/api/services/:id",
+              "protocol": "http",
+              "host": ["localhost"],
+              "path": ["api", "services", ":id"]
+            },
+            "description": "Replace `:id` with the ID of the service you want to delete."
+          }
+        }
+      ]
+    }
+  ]
+}
