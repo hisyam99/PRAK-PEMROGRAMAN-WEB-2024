@@ -1,11 +1,11 @@
-/* Base Awal */
+/* Reset and Base Styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Variabel CSS */
+/* CSS Variables for Responsive Design */
 :root {
   --color-primary: #007bff;
   --color-secondary: #6c757d;
@@ -311,135 +311,30 @@ table td {
   background-color: darken(#007bff, 10%);
 }
 
-/* Footer Styles */
+/* Footer */
 .footer {
   background-color: #333;
   color: var(--color-white);
-  padding: var(--spacing-large) var(--spacing-medium);
-}
-
-.footer-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: var(--spacing-large);
-  margin-bottom: var(--spacing-large);
-}
-
-.footer-section h4 {
-  font-size: var(--font-size-base);
-  margin-bottom: var(--spacing-medium);
-  color: var(--color-primary);
-  text-transform: uppercase;
-  border-bottom: 2px solid var(--color-primary);
-  padding-bottom: var(--spacing-small);
-}
-
-.footer-section.about p {
-  margin-bottom: var(--spacing-medium);
-}
-
-.contact-info p {
-  display: flex;
-  align-items: center;
-  margin-bottom: var(--spacing-small);
-}
-
-.contact-info i {
-  margin-right: var(--spacing-small);
-  color: var(--color-primary);
-}
-
-.footer-section.links ul,
-.footer-section.services ul {
-  list-style: none;
-}
-
-.footer-section.links ul li,
-.footer-section.services ul li {
-  margin-bottom: var(--spacing-small);
-}
-
-.footer-section.links ul li a {
-  color: var(--color-white);
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-.footer-section.links ul li a:hover {
-  color: var(--color-primary);
-}
-
-.footer-section.services ul li {
-  display: flex;
-  align-items: center;
-}
-
-.footer-section.services ul li i {
-  margin-right: var(--spacing-small);
-  color: var(--color-primary);
-}
-
-.newsletter-form {
-  display: flex;
-  margin-bottom: var(--spacing-medium);
-}
-
-.newsletter-form input {
-  flex-grow: 1;
-  padding: var(--spacing-small);
-  border: none;
-  border-radius: 5px 0 0 5px;
-}
-
-.newsletter-form button {
-  background-color: var(--color-primary);
-  color: var(--color-white);
-  border: none;
-  padding: var(--spacing-small) var(--spacing-medium);
-  border-radius: 0 5px 5px 0;
-  cursor: pointer;
+  text-align: center;
+  padding: var(--spacing-medium);
 }
 
 .footer .social-links {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: var(--spacing-medium);
+  margin-top: var(--spacing-small);
 }
 
 .footer .social-links a {
   color: var(--color-white);
+  text-decoration: none;
   font-size: 1.5rem;
   transition: color 0.3s;
 }
 
 .footer .social-links a:hover {
-  color: var(--color-primary);
-}
-
-.footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding-top: var(--spacing-medium);
-  text-align: center;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: var(--spacing-medium);
-}
-
-.footer-legal {
-  display: flex;
-  gap: var(--spacing-medium);
-}
-
-.footer-legal a {
-  color: var(--color-white);
-  text-decoration: none;
-  font-size: var(--font-size-small);
-  transition: color 0.3s;
-}
-
-.footer-legal a:hover {
   color: var(--color-primary);
 }
 
@@ -514,9 +409,9 @@ button[onclick^="deleteService"]:hover {
 .service-card img.service-image {
   width: 100%;
   max-width: 300px;
-  height: auto;
-  aspect-ratio: 1 / 1;
-  object-fit: contain;
+  height: auto; /* Agar proporsi tetap */
+  aspect-ratio: 1 / 1; /* Memastikan semua gambar berbentuk kotak */
+  object-fit: contain; /* Memastikan gambar memenuhi container */
   border-radius: 10px;
   margin-bottom: var(--spacing-small);
 }
@@ -538,9 +433,9 @@ button[onclick^="deleteService"]:hover {
 }
 
 .service-preview {
-  width: 100px;
-  height: auto;
-  border-radius: 5px;
+  width: 100px; /* Atur lebar gambar */
+  height: auto; /* Menjaga proporsi gambar */
+  border-radius: 5px; /* Opsional, untuk sudut melengkung */
 }
 
 /* Dialog Styles */

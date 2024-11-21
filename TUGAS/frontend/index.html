@@ -39,7 +39,6 @@
         </div>
       </header>
 
-      <!-- Rest of the HTML remains the same -->
       <main>
         <!-- Hero Section -->
         <section id="home" class="hero">
@@ -185,44 +184,79 @@
     <!-- Footer -->
     <footer class="footer">
       <div class="container">
-        <p>&copy; 2024 Reparin. All rights reserved. hisyam99</p>
-        <div class="social-links">
-          <a href="#"><i class="fab fa-facebook"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
+        <div class="footer-grid">
+          <div class="footer-section about">
+            <h4>Tentang Reparin</h4>
+            <p>
+              Platform jasa service gadget terpercaya dengan teknisi
+              berpengalaman dan layanan profesional.
+            </p>
+            <div class="contact-info">
+              <p>
+                <i class="fas fa-map-marker-alt"></i> Jl. Teknologi Digital No.
+                42, Jakarta, Indonesia
+              </p>
+              <p><i class="fas fa-phone"></i> +62 812-3456-7890</p>
+              <p><i class="fas fa-envelope"></i> support@reparin.id</p>
+            </div>
+          </div>
+
+          <div class="footer-section links">
+            <h4>Link Cepat</h4>
+            <ul>
+              <li><a href="#home">Beranda</a></li>
+              <li><a href="#features">Fitur</a></li>
+              <li><a href="service.html">Layanan</a></li>
+              <li><a href="#testimonials">Testimoni</a></li>
+              <li><a href="#contact">Kontak</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-section services">
+            <h4>Layanan Kami</h4>
+            <ul>
+              <li><i class="fas fa-mobile-alt"></i> Service Smartphone</li>
+              <li><i class="fas fa-laptop"></i> Service Laptop</li>
+              <li><i class="fas fa-tablet-alt"></i> Service Tablet</li>
+              <li><i class="fas fa-headphones"></i> Service Aksesoris</li>
+            </ul>
+          </div>
+
+          <div class="footer-section newsletter">
+            <h4>Langganan Newsletter</h4>
+            <form class="newsletter-form">
+              <input type="email" placeholder="Email Anda" required />
+              <button type="submit">Berlangganan</button>
+            </form>
+            <div class="social-links">
+              <a href="#" aria-label="Facebook"
+                ><i class="fab fa-facebook"></i
+              ></a>
+              <a href="#" aria-label="Twitter"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="#" aria-label="Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" aria-label="LinkedIn"
+                ><i class="fab fa-linkedin"></i
+              ></a>
+              <a href="#" aria-label="YouTube"
+                ><i class="fab fa-youtube"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2024 Reparin. All rights reserved. Created by hisyam99</p>
+          <div class="footer-legal">
+            <a href="#">Kebijakan Privasi</a>
+            <a href="#">Syarat & Ketentuan</a>
+          </div>
         </div>
       </div>
     </footer>
-
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const hamburgerMenu = document.querySelector(".hamburger-menu");
-        const navbar = document.querySelector(".navbar");
-
-        hamburgerMenu.addEventListener("click", () => {
-          hamburgerMenu.classList.toggle("active");
-          navbar.classList.toggle("active");
-        });
-
-        // Tutup Menu ketika menekan tombol Menu atau Menekan bebas diluar area Menu
-        document.addEventListener("click", (event) => {
-          const isClickInsideNavbar = navbar.contains(event.target);
-          const isClickHamburger = hamburgerMenu.contains(event.target);
-
-          if (!isClickInsideNavbar && !isClickHamburger) {
-            hamburgerMenu.classList.remove("active");
-            navbar.classList.remove("active");
-          }
-        });
-
-        // Tutup Menu ketika link di navigasi menu diklik
-        navbar.querySelectorAll("a").forEach((link) => {
-          link.addEventListener("click", () => {
-            hamburgerMenu.classList.remove("active");
-            navbar.classList.remove("active");
-          });
-        });
-      });
-    </script>
+    <script src="/navbar_menu.js"></script>
   </body>
 </html>

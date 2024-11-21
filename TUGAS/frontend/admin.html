@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Reparin | Layanan</title>
+    <title>Reparin | Admin Page</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -12,16 +12,19 @@
         <a href="index.html#" class="logo">
           <img src="/public/reparin-icon.png" alt="Reparin Logo" />
         </a>
+
+        <!-- Hamburger Menu Button -->
         <button class="hamburger-menu" aria-label="Toggle navigation">
           <span></span>
           <span></span>
           <span></span>
         </button>
+
         <nav class="navbar">
           <ul>
             <li><a href="index.html">Beranda</a></li>
             <li><a href="index.html#features">Fitur</a></li>
-            <li><a href="#">Layanan</a></li>
+            <li><a href="service.html">Layanan</a></li>
             <li><a href="index.html#testimonials">Testimoni</a></li>
             <li><a href="index.html#contact">Kontak</a></li>
           </ul>
@@ -31,12 +34,96 @@
     <main class="wrapper">
       <section id="services" class="features">
         <div class="container">
-          <h2>Jasa Servis Yang Tersedia</h2>
-          <div id="servicesGrid" class="services-grid">
-            <!-- Dynamic service cards will be rendered here -->
+          <div class="services-header">
+            <h2>Daftar Servis</h2>
+            <button id="addServiceButton" class="btn-add-service">
+              + Tambah Data
+            </button>
+          </div>
+          <div class="features-grid">
+            <table id="serviceTable" class="feature-card">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Image</th>
+                  <th>Image URL</th>
+                  <th>Name</th>
+                  <th>Description</th>
+                  <th>Category</th>
+                  <th>Price Range</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Dynamic data -->
+              </tbody>
+            </table>
           </div>
         </div>
       </section>
+
+      <!-- Dialog untuk Tambah Data -->
+      <dialog id="addServiceDialog">
+        <h3 id="formTitle">Tambahkan Data Servis Baru</h3>
+        <form id="serviceForm" method="dialog">
+          <div>
+            <label for="image_url">Image URL:</label>
+            <input type="text" id="image_url" required />
+          </div>
+          <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" required />
+          </div>
+          <div>
+            <label for="description">Description:</label>
+            <textarea id="description" required></textarea>
+          </div>
+          <div>
+            <label for="category">Category:</label>
+            <input type="text" id="category" required />
+          </div>
+          <div>
+            <label for="priceRange">Price Range:</label>
+            <input type="text" id="priceRange" required />
+          </div>
+          <div class="button-group">
+            <button type="submit">Simpan</button>
+            <button type="button" id="cancelAddService">Batal</button>
+          </div>
+        </form>
+      </dialog>
+
+      <!-- Dialog untuk Edit Data -->
+      <dialog id="editDialog">
+        <h3>Edit Data Servis</h3>
+        <form id="editServiceForm" method="dialog">
+          <input type="hidden" id="editServiceId" />
+          <div>
+            <label for="editImageUrl">Image URL:</label>
+            <input type="text" id="editImageUrl" required />
+          </div>
+          <div>
+            <label for="editName">Name:</label>
+            <input type="text" id="editName" required />
+          </div>
+          <div>
+            <label for="editDescription">Description:</label>
+            <textarea id="editDescription" required></textarea>
+          </div>
+          <div>
+            <label for="editCategory">Category:</label>
+            <input type="text" id="editCategory" required />
+          </div>
+          <div>
+            <label for="editPriceRange">Price Range:</label>
+            <input type="text" id="editPriceRange" required />
+          </div>
+          <div class="button-group">
+            <button type="submit">Simpan</button>
+            <button type="button" id="closeEditDialog">Batal</button>
+          </div>
+        </form>
+      </dialog>
     </main>
     <footer class="footer">
       <div class="container">
@@ -114,6 +201,6 @@
       </div>
     </footer>
     <script src="/navbar_menu.js"></script>
-    <script src="/script_user.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>

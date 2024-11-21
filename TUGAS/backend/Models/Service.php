@@ -58,13 +58,14 @@ class Service extends DatabaseConfig
     // Function untuk menambahkan layanan baru
     public function create($data)
     {
+        $image_url = $data['image_url'];
         $name = $data['name'];
         $description = $data['description'];
         $category = $data['category'];
         $price_range = $data['price_range'];
-        $query = "INSERT INTO services (name, description, category, price_range) VALUES (?, ?, ?, ?)";
+        $query = "INSERT INTO services (image_url, name, description, category, price_range) VALUES (?, ?, ?, ?, ?)";
         $stmt = $this->conn->prepare($query);
-        $stmt->bind_param("ssss", $name, $description, $category, $price_range);
+        $stmt->bind_param("sssss", $image_url, $name, $description, $category, $price_range);
         $stmt->execute();
 
         $stmt->close();
@@ -74,13 +75,14 @@ class Service extends DatabaseConfig
     // Function untuk memperbarui layanan
     public function update($data, $id)
     {
+        $image_url = $data['image_url'];
         $name = $data["name"];
         $description = $data["description"];
         $category = $data["category"];
         $price_range = $data["price_range"];
-        $query = "UPDATE services SET name = ?, description = ?, category = ?, price_range = ? WHERE id = ?";
+        $query = "UPDATE services SET image_url = ?, name = ?, description = ?, category = ?, price_range = ? WHERE id = ?";
         $stmt = $this->conn->prepare($query);
-        $stmt->bind_param("ssssi", $name, $description, $category, $price_range, $id);
+        $stmt->bind_param("sssssi", $image_url, $name, $description, $category, $price_range, $id);
         $stmt->execute();
 
         $stmt->close();

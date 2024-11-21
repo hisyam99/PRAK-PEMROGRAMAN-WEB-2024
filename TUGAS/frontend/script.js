@@ -1,89 +1,171 @@
 const serviceTable = document.querySelector("#serviceTable tbody");
-const serviceForm = document.getElementById("serviceForm");
-const formTitle = document.getElementById("formTitle");
-const cancelButton = document.getElementById("cancelButton");
+const addServiceDialog = document.getElementById("addServiceDialog");
+const addServiceButton = document.getElementById("addServiceButton");
+const cancelAddServiceButton = document.getElementById("cancelAddService");
+const editDialog = document.getElementById("editDialog");
+const editServiceForm = document.getElementById("editServiceForm");
+const closeEditDialog = document.getElementById("closeEditDialog");
 
 const apiUrl = "http://localhost:8000/api/services";
 
 // Fetch and display services
 async function fetchServices() {
-  const response = await fetch(apiUrl);
-  const { data } = await response.json();
-  serviceTable.innerHTML = "";
-  data.forEach((service) => {
-    serviceTable.innerHTML += `
-            <tr>
-                <td>${service.id}</td>
-                <td>${service.name}</td>
-                <td>${service.description}</td>
-                <td>${service.category}</td>
-                <td>${service.price_range}</td>
-                <td>
-                    <button onclick="editService(${service.id})">Edit</button>
-                    <button onclick="deleteService(${service.id})">Delete</button>
-                </td>
-            </tr>
-        `;
-  });
+  try {
+    const response = await fetch(apiUrl);
+    const { data } = await response.json();
+    serviceTable.innerHTML = data
+      .map(
+        (service) => `
+    <tr>
+      <td>${service.id}</td>
+      <td><img src="${service.image_url}" alt="Service Image" class="service-preview" /></td>
+      <td>${service.image_url}</td>
+      <td>${service.name}</td>
+      <td>${service.description}</td>
+      <td>${service.category}</td>
+      <td>${service.price_range}</td>
+      <td>
+        <button onclick="openEditDialog(${service.id})">Edit</button>
+        <button onclick="deleteService(${service.id})">Delete</button>
+      </td>
+    </tr>
+        `
+      )
+      .join("");
+  } catch (error) {
+    console.error("Error fetching services:", error);
+    alert("Gagal memuat data layanan. Silakan coba lagi.");
+  }
 }
 
-// Add or update service
-serviceForm.addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const id = document.getElementById("serviceId").value;
-  const name = document.getElementById("name").value;
-  const description = document.getElementById("description").value;
-  const category = document.getElementById("category").value;
-  const priceRange = document.getElementById("priceRange").value;
-
-  const method = id ? "PUT" : "POST";
-  const endpoint = id ? `${apiUrl}/${id}` : apiUrl;
-  const body = JSON.stringify({
-    name,
-    description,
-    category,
-    price_range: priceRange,
-  });
-
-  await fetch(endpoint, {
-    method,
-    headers: { "Content-Type": "application/json" },
-    body,
-  });
-
-  serviceForm.reset();
-  cancelButton.style.display = "none";
-  formTitle.textContent = "Add New Service";
-  fetchServices();
+// Open add service dialog
+addServiceButton.addEventListener("click", () => {
+  serviceForm.reset(); // Clear any previous inputs
+  addServiceDialog.showModal();
 });
 
-// Edit service
-async function editService(id) {
-  const response = await fetch(`${apiUrl}/${id}`);
-  const { data } = await response.json();
+// Cancel add service dialog
+cancelAddServiceButton.addEventListener("click", () => {
+  addServiceDialog.close();
+});
 
-  document.getElementById("serviceId").value = data[0].id;
-  document.getElementById("name").value = data[0].name;
-  document.getElementById("description").value = data[0].description;
-  document.getElementById("category").value = data[0].category;
-  document.getElementById("priceRange").value = data[0].price_range;
+// Add new service
+const serviceForm = document.getElementById("addServiceDialog").querySelector("form");
+serviceForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
 
-  formTitle.textContent = "Edit Service";
-  cancelButton.style.display = "inline-block";
+  try {
+    const image_url = document.getElementById("image_url").value;
+    const name = document.getElementById("name").value;
+    const description = document.getElementById("description").value;
+    const category = document.getElementById("category").value;
+    const priceRange = document.getElementById("priceRange").value;
+
+    const response = await fetch(apiUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        image_url,
+        name,
+        description,
+        category,
+        price_range: priceRange,
+      }),
+    });
+
+    if (!response.ok) {
+      throw new Error("Gagal menambahkan layanan");
+    }
+
+    addServiceDialog.close();
+    serviceForm.reset();
+    fetchServices();
+  } catch (error) {
+    console.error("Error adding service:", error);
+    alert("Gagal menambahkan layanan. Silakan coba lagi.");
+  }
+});
+
+// Open edit dialog
+async function openEditDialog(id) {
+  try {
+    const response = await fetch(`${apiUrl}/${id}`);
+    const { data } = await response.json();
+
+    if (!data || data.length === 0) {
+      throw new Error("Data layanan tidak ditemukan");
+    }
+
+    document.getElementById("editServiceId").value = data[0].id;
+    document.getElementById("editImageUrl").value = data[0].image_url;
+    document.getElementById("editName").value = data[0].name;
+    document.getElementById("editDescription").value = data[0].description;
+    document.getElementById("editCategory").value = data[0].category;
+    document.getElementById("editPriceRange").value = data[0].price_range;
+
+    editDialog.showModal();
+  } catch (error) {
+    console.error("Error opening edit dialog:", error);
+    alert("Gagal membuka dialog edit. Silakan coba lagi.");
+  }
 }
 
-// Cancel editing
-cancelButton.addEventListener("click", () => {
-  serviceForm.reset();
-  cancelButton.style.display = "none";
-  formTitle.textContent = "Add New Service";
+// Save changes in the edit dialog
+editServiceForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  try {
+    const id = document.getElementById("editServiceId").value;
+    const image_url = document.getElementById("editImageUrl").value;
+    const name = document.getElementById("editName").value;
+    const description = document.getElementById("editDescription").value;
+    const category = document.getElementById("editCategory").value;
+    const priceRange = document.getElementById("editPriceRange").value;
+
+    const response = await fetch(`${apiUrl}/${id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        image_url,
+        name,
+        description,
+        category,
+        price_range: priceRange,
+      }),
+    });
+
+    if (!response.ok) {
+      throw new Error("Gagal memperbarui layanan");
+    }
+
+    editDialog.close();
+    fetchServices();
+  } catch (error) {
+    console.error("Error updating service:", error);
+    alert("Gagal memperbarui layanan. Silakan coba lagi.");
+  }
+});
+
+// Cancel edit dialog
+closeEditDialog.addEventListener("click", () => {
+  editDialog.close();
 });
 
 // Delete service
 async function deleteService(id) {
-  if (confirm("Are you sure you want to delete this service?")) {
-    await fetch(`${apiUrl}/${id}`, { method: "DELETE" });
-    fetchServices();
+  try {
+    if (confirm("Apakah Anda yakin ingin menghapus layanan ini?")) {
+      const response = await fetch(`${apiUrl}/${id}`, { method: "DELETE" });
+
+      if (!response.ok) {
+        throw new Error("Gagal menghapus layanan");
+      }
+
+      fetchServices();
+    }
+  } catch (error) {
+    console.error("Error deleting service:", error);
+    alert("Gagal menghapus layanan. Silakan coba lagi.");
   }
 }
 
