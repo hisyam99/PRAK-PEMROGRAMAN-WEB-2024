@@ -34,4 +34,14 @@ class Service extends Model
             get: fn($image_url) => url('/storage/services/' . $image_url),
         );
     }
+
+    public function ratings()
+    {
+        return $this->hasMany(Rating::class);
+    }
+
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
 }
