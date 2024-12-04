@@ -89,6 +89,16 @@ class ServiceController extends Controller
         return new ServiceResource(true, 'Service details!', $service);
     }
 
+    // public function show($id)
+    // {
+    //     $service = Service::with(['ratings', 'reviews'])->findOrFail($id);
+    //     $ratings = $service->ratings;
+    //     $reviews = $service->reviews;
+
+    //     return view('services.show', compact('service', 'ratings', 'reviews'));
+    // }
+
+
     /**
      * update
      *
