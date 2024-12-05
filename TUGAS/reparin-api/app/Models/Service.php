@@ -16,7 +16,7 @@ class Service extends Model
      * @var array
      */
     protected $fillable = [
-        'image_url',      // Kolom untuk URL gambar
+        'image',      // Kolom untuk URL gambar
         'name',           // Nama layanan
         'description',    // Deskripsi layanan
         'category',       // Kategori layanan
@@ -26,12 +26,12 @@ class Service extends Model
     /**
      * Accessor for the image attribute.
      *
-     * @return \Illuminate\Database\Eloquent\Casts\Attribute
+     * @return Attribute
      */
     protected function image(): Attribute
     {
         return Attribute::make(
-            get: fn($image_url) => url('/storage/services/' . $image_url),
+            get: fn($image) => url('/storage/services/' . $image),
         );
     }
 

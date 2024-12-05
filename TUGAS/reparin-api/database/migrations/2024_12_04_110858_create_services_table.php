@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->id(); // Kolom ID sebagai primary key
-            $table->string('image_url'); // URL gambar (string)
+            $table->string('image'); // URL gambar (string)
             $table->string('name'); // Nama (string)
             $table->text('description'); // Deskripsi (teks panjang)
             $table->string('category'); // Kategori (string)

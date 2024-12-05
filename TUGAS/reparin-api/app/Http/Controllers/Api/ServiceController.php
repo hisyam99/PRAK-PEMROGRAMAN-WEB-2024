@@ -45,7 +45,7 @@ class ServiceController extends Controller
     {
         // Define validation rules
         $validator = Validator::make($request->all(), [
-            'image_url'  => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image'  => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'name'       => 'required',
             'description' => 'required',
             'category'   => 'required',
@@ -58,12 +58,12 @@ class ServiceController extends Controller
         }
 
         // Upload image
-        $image = $request->file('image_url');
+        $image = $request->file('image');
         $image->storeAs('public/services', $image->hashName());
 
         // Create service
         $service = Service::create([
-            'image_url'  => $image->hashName(),
+            'image'  => $image->hashName(),
             'name'       => $request->name,
             'description' => $request->description,
             'category'   => $request->category,
@@ -125,18 +125,18 @@ class ServiceController extends Controller
         $service = Service::find($id);
 
         // Check if image is not empty
-        if ($request->hasFile('image_url')) {
+        if ($request->hasFile('image')) {
 
             // Upload new image
-            $image = $request->file('image_url');
+            $image = $request->file('image');
             $image->storeAs('public/services', $image->hashName());
 
             // Delete old image
-            Storage::delete('public/services/' . basename($service->image_url));
+            Storage::delete('public/services/' . basename($service->image));
 
             // Update service with new image
             $service->update([
-                'image_url'  => $image->hashName(),
+                'image'  => $image->hashName(),
                 'name'       => $request->name,
                 'description' => $request->description,
                 'category'   => $request->category,
@@ -169,7 +169,7 @@ class ServiceController extends Controller
         $service = Service::find($id);
 
         // Delete image
-        Storage::delete('public/services/' . basename($service->image_url));
+        Storage::delete('public/services/' . basename($service->image));
 
         // Delete service
         $service->delete();
